@@ -114,6 +114,8 @@ while True:
             segment.goto(1000, 1000)
         segments.clear()
 
-    time.sleep(0.1)
+    # Progressive speed - starts slow and gets faster
+    delay = max(0.015, 0.25 - (len(segments) * 0.01))
+    time.sleep(delay)
 
 wn.mainloop()

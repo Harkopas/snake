@@ -17,8 +17,8 @@ red = (255, 0, 0)
 
 # Snake settings
 snake_block = 10
-starting_speed = 5
-speed_increase_per_food = 0.6
+starting_speed = 2
+speed_increase_per_food = 0.3
 max_speed = 25
 
 # Initialize clock

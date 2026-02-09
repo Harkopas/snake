@@ -26,7 +26,9 @@ clock = pygame.time.Clock()
 
 # Snake parameters
 snake_block = 10
-snake_speed = 15
+starting_speed = 3
+speed_increase_per_food = 0.5
+max_speed = 25
 
 # Font styles
 font_style = pygame.font.SysFont('bahnschrift', 25)
@@ -130,7 +132,12 @@ def gameLoop():
             foody = round(random.randrange(0, HEIGHT - snake_block) / 10.0) * 10.0
             Length_of_snake += 1
 
-        clock.tick(snake_speed)
+        # Calculate current speed based on snake length
+        current_speed = min(
+            max_speed,
+            starting_speed + (Length_of_snake - 1) * speed_increase_per_food,
+        )
+        clock.tick(current_speed)
 
     pygame.quit()
     quit()
