@@ -105,7 +105,7 @@ def gameLoop():
     x1 = WIDTH / 2
     y1 = HEIGHT / 2
 
-    x1_change = 0
+    x1_change = snake_block
     y1_change = 0
 
     snake_List = []
