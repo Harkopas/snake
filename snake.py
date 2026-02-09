@@ -17,7 +17,9 @@ red = (255, 0, 0)
 
 # Snake settings
 snake_block = 10
-snake_speed = 15
+starting_speed = 5
+speed_increase_per_food = 0.6
+max_speed = 25
 
 # Initialize clock
 clock = pygame.time.Clock()
@@ -111,7 +113,11 @@ def gameLoop():
             foody = round(random.randrange(0, height - snake_block) / 10.0) * 10.0
             Length_of_snake += 1
 
-        clock.tick(snake_speed)
+        current_speed = min(
+            max_speed,
+            starting_speed + (Length_of_snake - 1) * speed_increase_per_food,
+        )
+        clock.tick(current_speed)
 
     pygame.quit()
     quit()
